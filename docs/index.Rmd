@@ -1,0 +1,78 @@
+---
+title: "A3 - Incarceration"
+output: html_document
+author: "Atreya Bhamidi"
+date: "3/13/2022"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r, warning = FALSE, echo = FALSE, include = FALSE}
+library("knitr")
+options(tidyverse.quiet = TRUE)
+source("../source/analysis.R")
+
+```
+# Incarceration in the United States
+
+## Introduction
+
+The United States has the world's highest number of incarcerated individuals in the world. Incarceration in the United States is inextricably linked with widespread social issues, from racial inequities to police injustices, from prisons for profit to the "war on drugs". The US incarceration system comprises a complex structure of institutions, including jails and prisons at the state, county, and federal levels.
+
+The Vera Institute of Justice undertook their Incarceration Trends project to document and investigate incarceration dynamics at not just the state level but the county level as well, since county officials play a large role in determining how communities use incarceration. 
+
+As an Asian American, I wanted to focus on the Asian American and Pacific Islander (AAPI) population in jails and prisons across the United States, and see which counties were hotspots for AAPI incarceration. 
+Here are some summary statistics to give a broad outline of AAPI incarceration in the US. 
+
+```{r, warning = FALSE, echo = FALSE}
+
+kable(summary_vars)
+```
+## Variable Comparison Chart
+
+One interesting observation from the summary table is that the county with the highest AAPI population, Los Angeles County, was NOT the county with the highest incarcerated AAPI population, indicating that AAPI population in a county is not a perfect predictor of incarcerated AAPI population. To explore this in other counties, let's look at the relationship between AAPI population and prison population in King County, where the UW is located, from 1990 to 2016.
+
+
+*Note: Years were selected to ensure data availability, removing unobserved values*  
+
+```{r Variable Comparison Chart, echo = FALSE, warning = FALSE}
+
+var_comp_graph
+
+```
+
+As is evident from the graph, AAPI prison population does not correlate perfectly to AAPI population within King County. There is a strong positive correlation first, which most people would expect, but then a strong negative correlation followed by a weak positive correlation. This indicates that there are factors other than sheer numbers involved in incarceration by racial group. 
+
+## Time Trend Chart 
+
+Let's get a zoomed-out view now: how have incarceration rates for AAPI individuals changed over the years? This visualization shows the variation over time of AAPI imprisonment rates as a proportion of their population in the 9 counties with the highest AAPI population in the US (as measured in 2018). 
+
+*Note: Honolulu County was dropped from this visualization due to a lack of recorded values of AAPI prison population rates in 2018.*
+
+```{r Time Trend Chart, echo = FALSE, warning = FALSE}
+
+trend_graph
+
+```
+On the whole, these counties seem to be showing erratic trends of AAPI incarceration, with roughly decreasing trends since the late 90s and early 2000s. 
+
+## Geographical Distribution Chart
+
+Finally, let's take a look at the whole country and see which states, counties, or locations incarcerate AAPI individuals at a higher rate. 
+
+
+```{r Map, echo = FALSE, warning = FALSE}
+
+aapi_jail_pop_rate_2018
+
+```
+For the most part, AAPI jail incarceration rates as a proportion of their population are low across the United States (as seen by the overwhelming majority of counties colored green in the graph). However, some pockets of increased incarceration rates are noticeable in the Midwest and Southeast of the US. 
+
+## Conclusion
+
+AAPI Incarceration rates are typically much lower than that of other minority groups, such as Black Americans. While the dataset from the Vera Institute (as pertaining to Asian Americans and Pacific Islanders) had significant gaps and unobserved values, it provided insightful data to observe trends that are important for policymakers and law enforcement officials to analyze. Overpolicing and racial disparities are rife across the US, and correcting policing issues could lead not only to improved efficiency of the use of taxpayer money but also improved social harmony and racial equity. 
+
+
